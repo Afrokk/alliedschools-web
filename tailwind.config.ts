@@ -5,12 +5,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['var(--font-noto-sans)'],
-        urdu: ['var(--font-noto-urdu)'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
