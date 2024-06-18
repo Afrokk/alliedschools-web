@@ -10,22 +10,26 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "bunx eslint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
+    "negotiator": "^0.6.3",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522"
+    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^9.5.0",
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-51a85ea-20240601",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.0-rc.0"
+    "typescript": "^5"
   }
 }
