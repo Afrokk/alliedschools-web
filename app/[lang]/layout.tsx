@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { Noto_Sans } from "next/font/google";
+import { NotoSans, NotoUrdu } from "./fonts";
 
 import { i18n, type Locale } from "../../i18n-config";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
-
-const NotoSans = Noto_Sans({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export default function RootLayout({
   children,
@@ -21,10 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: Locale };
 }>) {
+  const fontClassName =
+    params.lang === "ur" ? NotoUrdu.className : NotoSans.className;
   return (
     <html lang={params.lang}>
       <body
-        className={`${NotoSans.className} flex justify-center items-center h-screen`}
+        className={`${fontClassName} flex justify-center items-center h-screen`}
       >
         {children}
       </body>

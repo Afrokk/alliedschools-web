@@ -12,7 +12,7 @@ export default async function IndexPage({
   return (
     <div>
       <LocaleSwitcher />
-      <h1>{dictionary.hero.heading}</h1>
+      <h1 className="font-bold">{dictionary.hero.heading}</h1>
       <p>Current locale: {lang}</p>
     </div>
   );
