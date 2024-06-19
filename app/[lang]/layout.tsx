@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import { NotoSans, NotoUrdu } from "./fonts";
-
-import { i18n, type Locale } from "../../i18n-config";
+import { i18n, type Locale } from "@lib/i18n-config";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));

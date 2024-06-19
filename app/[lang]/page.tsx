@@ -1,6 +1,6 @@
-import { getDictionary } from "../../utils/getDictionary";
-import { Locale } from "../../i18n-config";
-import LocaleSwitcher from "./components/locale-switcher";
+import { getDictionary } from "@utils/getDictionary";
+import LocaleSwitcher from "@components/locale-switcher";
+import { Locale } from "@lib/i18n-config";
 
 export default async function IndexPage({
   params: { lang },
@@ -10,10 +10,10 @@ export default async function IndexPage({
   const dictionary = await getDictionary(lang);
 
   return (
-    <div>
+    <>
       <LocaleSwitcher />
       <h1 className="font-bold">{dictionary.hero.heading}</h1>
       <p>Current locale: {lang}</p>
-    </div>
+    </>
   );
 }
