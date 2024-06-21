@@ -1,10 +1,9 @@
 import "./globals.css";
+
 import { NotoSans, NotoUrdu } from "./fonts";
+import Navbar from "@components/navbar";
 import { i18n, type Locale } from "@lib/i18n-config";
 import type { Metadata } from "next";
-import Navbar from "@components/navbar/navbar";
-
-import Link from "next/link";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -21,10 +20,8 @@ export default function RootLayout({
     params.lang === "ur" ? NotoUrdu.className : NotoSans.className;
   return (
     <html lang={params.lang}>
-      <body
-        className={`${fontClassName} flex justify-center items-center h-screen`}
-      >
-        <Navbar />
+      <body className={fontClassName}>
+        <Navbar lang={params.lang} />
         {children}
       </body>
     </html>

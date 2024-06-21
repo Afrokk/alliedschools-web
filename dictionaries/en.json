@@ -1,4 +1,11 @@
 {
+    "lang": "English",
+    "nav": {
+        "brand": "Allied School",
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact"
+    },
     "hero": {
         "heading": "Welcome!"
     }
