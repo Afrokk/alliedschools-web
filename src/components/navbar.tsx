@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LocaleSwitcher from "@components/locale-switcher";
+import LocaleSwitcher from "@components/locale-switcher/locale-switcher";
 import { cva } from "class-variance-authority";
 import { getDictionary } from "@utils/getDictionary";
 import type { Locale } from "@lib/i18n-config";
@@ -16,7 +16,7 @@ export default async function Navbar({ lang }: { lang: Locale }) {
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-14 items-center">
           <Link href="#" className="flex items-center">
-            <span className="">{dictionary.nav.brand}</span>
+            {dictionary.nav.brand}
           </Link>
           <nav className="hidden md:flex gap-10">
             <Link href="/" className={navigationMenuButtonStyles()}>

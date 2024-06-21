@@ -2,11 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { NotoSans, NotoUrdu } from "@/[lang]/fonts";
-import type { Locale } from "../lib/i18n-config";
+import type { Locale } from "@lib/i18n-config";
+import { localeButtonStyles } from "./styles";
 
 export default function LocaleSwitcher() {
   const pathName = usePathname();
+
+  const activeLocale = (locale: Locale) => pathName.split("/")[1] === locale;
 
   function redirectedPathName(locale: Locale) {
     if (!pathName) return "/";
@@ -20,13 +22,19 @@ export default function LocaleSwitcher() {
       <div className="flex bg-gray-200 rounded-full p-1">
         <Link
           href={redirectedPathName("en")}
-          className={`${NotoSans.className} bg-white text-blue-500 px-4 py-1 rounded-full`}
+          className={localeButtonStyles({
+            active: activeLocale("en"),
+            font: "sans",
+          })}
         >
           English
         </Link>
         <Link
           href={redirectedPathName("ur")}
-          className={`${NotoUrdu.className} text-gray-500 px-4 py-1 rounded-full`}
+          className={localeButtonStyles({
+            active: activeLocale("ur"),
+            font: "urdu",
+          })}
         >
           اردو
         </Link>
