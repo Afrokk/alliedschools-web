@@ -6,7 +6,7 @@ export const localeButtonStyles = cva(
   {
     variants: {
       active: {
-        true: "bg-white text-blue-500",
+        true: "bg-white text-alliedBlue",
         false: "text-gray-500",
       },
       font: {

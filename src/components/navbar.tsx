@@ -9,7 +9,7 @@ export default async function Navbar({ lang }: { lang: Locale }) {
   const dictionary = await getDictionary(lang);
 
   const navigationMenuButtonStyles = cva(
-    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 hover:text-alliedBlue"
   );
 
   return (
@@ -18,9 +18,9 @@ export default async function Navbar({ lang }: { lang: Locale }) {
         <div className="flex justify-between h-14 items-center">
           <Link
             href="#"
-            className={`${NotoSans.className} flex items-center font-bold text-2xl`}
+            className={`${NotoSans.className} flex items-center font-bold text-3xl text-alliedPurple`}
           >
-            Allied<span className="font-normal">Schools</span>
+            Allied<span className="font-normal text-black">Schools</span>
           </Link>
           <nav className="hidden md:flex gap-10">
             <Link href="/" className={navigationMenuButtonStyles()}>
