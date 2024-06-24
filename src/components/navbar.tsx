@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LocaleSwitcher from "@components/locale-switcher/locale-switcher";
+import LocaleSwitcher from "@components/locale-switch/locale-switch";
 import { cva } from "class-variance-authority";
 import { getDictionary } from "@utils/getDictionary";
 import type { Locale } from "@lib/i18n-config";
