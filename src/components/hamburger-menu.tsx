@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
+import { navigationMenuButtonStyles } from "@utils/navigationMenuButtonStyles";
 import LocaleSwitcher from "@components/locale-switch/locale-switch";
+import { LanguageContext } from "@components/language-context-provider";
 
-export default function HamburgerMenu({
-  navigationMenuButtonStyles,
-  dictionary,
-}) {
+export default function HamburgerMenu() {
+  const dictionary = useContext(LanguageContext);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -33,13 +34,13 @@ export default function HamburgerMenu({
         }`}
       >
         <Link href="/" className={navigationMenuButtonStyles()}>
-          {dictionary.nav.home}
+          {dictionary?.nav.home}
         </Link>
         <Link href="/about" className={navigationMenuButtonStyles()}>
-          {dictionary.nav.about}
+          {dictionary?.nav.about}
         </Link>
         <Link href="/contact" className={navigationMenuButtonStyles()}>
-          {dictionary.nav.contact}
+          {dictionary?.nav.contact}
         </Link>
         <div className="flex items-center gap-4 p-4 md:p-0">
           <LocaleSwitcher />

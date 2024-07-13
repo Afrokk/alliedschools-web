@@ -1,17 +1,16 @@
 import Link from "next/link";
 import LocaleSwitcher from "@components/locale-switch/locale-switch";
-import { cva } from "class-variance-authority";
-import { getDictionary } from "@utils/getDictionary";
-import type { Locale } from "@lib/i18n-config";
+import { navigationMenuButtonStyles } from "@utils/navigationMenuButtonStyles";
 import { NotoSans } from "@app/fonts";
+import HamburgerMenu from "@components/hamburger-menu";
 
-export default async function Navbar({ lang }: { lang: Locale }) {
-  const dictionary = await getDictionary(lang);
+import type { Dictionary } from "@customTypes/dictionary";
 
-  const navigationMenuButtonStyles = cva(
-    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 hover:text-alliedBlue"
-  );
-
+export default async function Navbar({
+  dictionary,
+}: {
+  dictionary: Dictionary["nav"];
+}) {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
       <div className="w-full max-w-7xl mx-auto px-4">
@@ -24,17 +23,20 @@ export default async function Navbar({ lang }: { lang: Locale }) {
           </Link>
           <nav className="hidden md:flex gap-10">
             <Link href="/" className={navigationMenuButtonStyles()}>
-              {dictionary.nav.home}
+              {dictionary.home}
             </Link>
             <Link href="/about" className={navigationMenuButtonStyles()}>
-              {dictionary.nav.about}
+              {dictionary.about}
             </Link>
             <Link href="/contact" className={navigationMenuButtonStyles()}>
-              {dictionary.nav.contact}
+              {dictionary.contact}
             </Link>
           </nav>
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <LocaleSwitcher />
+          </div>
+          <div className="md:hidden">
+            <HamburgerMenu />
           </div>
         </div>
       </div>
