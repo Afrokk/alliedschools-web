@@ -2,7 +2,7 @@ import Link from "next/link";
 import LocaleSwitcher from "@components/locale-switch/locale-switch";
 import { navigationMenuButtonStyles } from "@utils/navigationMenuButtonStyles";
 import { NotoSans } from "@app/fonts";
-import HamburgerMenu from "@components/hamburger-menu";
+import HamburgerMenu from "@components/hamburger-menu/hamburger-menu";
 
 import type { Dictionary } from "@customTypes/dictionary";
 
@@ -17,7 +17,7 @@ export default async function Navbar({
         <div className="flex justify-between h-14 items-center">
           <Link
             href="#"
-            className={`${NotoSans.className} flex items-center font-bold text-3xl text-alliedPurple`}
+            className={`${NotoSans.className} flex items-center font-bold text-3xl text-alliedPurple z-50`}
           >
             Allied<span className="font-normal text-black">Schools</span>
           </Link>
