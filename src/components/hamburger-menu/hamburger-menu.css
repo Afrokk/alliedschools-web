@@ -1,0 +1,17 @@
+.nav-animate {
+  display: block;
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: top;
+}
+
+.nav-open {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.nav-closed {
+  transform: scaleY(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
