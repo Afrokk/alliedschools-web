@@ -12,9 +12,8 @@ function getLocale(request: NextRequest): string | undefined {
   // @ts-ignore - locales are readonly
   const locales: string[] = i18n.locales;
 
-
   let languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-    locales,
+    locales
   );
 
   const locale = matchLocale(languages, locales, i18n.defaultLocale);
@@ -26,17 +25,15 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   if (
-    [
-      '/manifest.json',
-      '/favicon.ico',
-    ].includes(pathname)
+    ["/manifest.json", "/favicon.ico", "/allied-school-logo.png"].includes(
+      pathname
+    )
   ) {
     return;
   }
 
   const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) =>
-      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
   if (pathnameIsMissingLocale) {
@@ -45,8 +42,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        request.url,
-      ),
+        request.url
+      )
     );
   }
 }
