@@ -1,11 +1,13 @@
 {
-    "lang": "English",
-    "nav": {
-        "home": "Home",
-        "about": "About",
-        "contact": "Contact"
-    },
-    "hero": {
-        "heading": "Welcome!"
-    }
+  "lang": "English",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "phone": "Phone: +92 340 4908492",
+    "email": "Email: alliedschoolsn@gmail.com"
+  },
+  "hero": {
+    "heading": "Welcome!"
+  }
 }
