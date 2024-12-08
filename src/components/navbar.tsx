@@ -35,7 +35,7 @@ export default async function Navbar({
                     <span className="font-light text-black">Schools</span>
                   </p>
                   <p className="text-lg font-normal text-alliedDarkBlue -mt-2">
-                    Norouz Campus
+                    Nouroz Campus
                   </p>
                 </div>
               </div>

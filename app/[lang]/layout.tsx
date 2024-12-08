@@ -16,13 +16,13 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }>) {
-  const fontClassName =
-    params.lang === "ur" ? NotoUrdu.className : NotoSans.className;
-  const dictionary = await getDictionary(params.lang);
+  const { lang } = await params;
+  const fontClassName = lang === "ur" ? NotoUrdu.className : NotoSans.className;
+  const dictionary = await getDictionary(lang);
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body className={fontClassName}>
         <LanguageContextProvider dictionary={dictionary}>
           <Navbar dictionary={dictionary.nav} />
@@ -34,6 +34,6 @@ export default async function RootLayout({
 }
 
 export const metadata: Metadata = {
-  title: "Allied Schools - Norouz Campus",
-  description: "Official website of Allied Schools - Norouz Campus",
+  title: "Allied Schools - Nouroz Campus",
+  description: "Official website of Allied Schools - Nouroz Campus",
 };
