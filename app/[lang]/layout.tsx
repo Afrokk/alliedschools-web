@@ -25,7 +25,7 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className={fontClassName}>
         <LanguageContextProvider dictionary={dictionary}>
-          <Navbar dictionary={dictionary.nav} />
+          <Navbar dictionary={dictionary.nav} currentLocale={lang} />
         </LanguageContextProvider>
         {children}
       </body>
